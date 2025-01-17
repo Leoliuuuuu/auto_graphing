@@ -21,7 +21,9 @@ def format_y_axis(x, pos):
 
 
 # Filter out unwanted trends (like "RelativeTime_Hours")
-columns_to_plot = [col for col in data.select_dtypes(include=['float64', 'int64']).columns if col != "RelativeTime_Hours"]
+columns_to_plot = [col for col in data.select_dtypes(include=['float64', 'int64']).columns if col != "RelativeTime_Hours"
+                   #and "SM2" in col
+                   ]
 columns_with_ms = [col for col in columns_to_plot if "MS" in col]
 columns_without_ms = [col for col in columns_to_plot if col not in columns_with_ms]
 
