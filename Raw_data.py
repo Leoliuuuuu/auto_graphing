@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter, ScalarFormatter
+from itertools import cycle
 
 # Load data
 data = pd.read_csv('YS-DI-013.csv')
@@ -24,6 +25,7 @@ columns_to_plot = [col for col in data.select_dtypes(include=['float64', 'int64'
 columns_with_ms = [col for col in columns_to_plot if "MS" in col]
 columns_without_ms = [col for col in columns_to_plot if col not in columns_with_ms]
 
+
 # Define color mapping for trends
 color_mapping = {
     "SM1": "blue",  # All trends containing "SM1" will be blue
@@ -34,11 +36,18 @@ color_mapping = {
 
 
 # Function to get color based on trend name
+
+allowed_colors = [
+    "orange", "purple", "pink", "yellow", "brown",
+    "cyan", "magenta", "lime", "teal", "navy", "maroon"
+]
+
+color_iterator = cycle(allowed_colors)
 def get_color(column_name):
     for key, color in color_mapping.items():
         if key in column_name:
             return color
-    return "black"  # Default color if no match is found
+    return next(color_iterator)
 
 
 fig, ax1 = plt.subplots(figsize=(10, 6))
