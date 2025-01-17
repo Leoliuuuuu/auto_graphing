@@ -92,8 +92,8 @@ ax2.tick_params(axis='y')
 # Align the two y-axes and enforce non-negative limits with padding at both ends
 min_y = min(ax1.get_ylim()[0], ax2.get_ylim()[0]) - 0.05 * max(ax1.get_ylim()[1], ax2.get_ylim()[1])  # Add 5% padding below
 max_y = max(ax1.get_ylim()[1], ax2.get_ylim()[1]) * 1.05  # Add 5% padding above
-ax1.set_ylim(min_y, max_y)
-ax2.set_ylim(min_y, max_y)
+ax1.set_ylim(min_y)
+ax2.set_ylim(min_y)
 
 
 # Combine legends for both axes
