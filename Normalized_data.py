@@ -4,7 +4,7 @@ from matplotlib.ticker import FuncFormatter, ScalarFormatter
 from itertools import cycle
 
 # Load data
-data = pd.read_csv('YS-DI-018_not_aged_DIC.csv')
+data = pd.read_csv('YS-DI-025_Kumada_3mol%.csv')
 
 # Convert the 'DateTime' column to datetime objects
 data['DateTime'] = pd.to_datetime(data['DateTime'])
