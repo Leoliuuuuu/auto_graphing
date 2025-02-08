@@ -4,7 +4,7 @@ from matplotlib.ticker import FuncFormatter, ScalarFormatter
 from itertools import cycle
 
 # Load data
-data = pd.read_csv('YS-DI-027_1.5_Ar-Br.csv')
+data = pd.read_csv('YS-DI-028_1.5_Grignard.csv')
 
 # Convert the 'DateTime' column to datetime objects
 data['DateTime'] = pd.to_datetime(data['DateTime'])
@@ -95,6 +95,8 @@ ax1.set_ylabel('Normalized Value')  # Primary y-axis label
 ax1.yaxis.set_major_formatter(FuncFormatter(format_y_axis))
 ax1.xaxis.set_major_formatter(FuncFormatter(format_two_decimals))
 ax1.tick_params(axis='y')
+range_x = float(input("Enter the range of x-axis: "))
+ax1.set_xlim(-0.1, range_x)
 
 # Combine legends for both axes
 lines1, labels1 = ax1.get_legend_handles_labels()
