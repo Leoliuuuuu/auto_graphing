@@ -4,7 +4,7 @@ from matplotlib.ticker import FuncFormatter, ScalarFormatter
 from itertools import cycle
 
 # Load data
-data = pd.read_csv('YS-DI-025_Kumada_3mol%.csv')
+data = pd.read_csv('YS-DI-027_1.5_Ar-Br.csv')
 
 # Convert the 'DateTime' column to datetime objects
 data['DateTime'] = pd.to_datetime(data['DateTime'])
@@ -73,7 +73,7 @@ for column in columns_to_plot:
         normalized_data[column] = data[column] / normalize_row[column]
     else:
         print(column)
-        factor = int(input("whats the factor you want?"))
+        factor = float(input("whats the factor you want?"))
         normalized_data[column] = data[column] / data[column].max() * factor
 
 
