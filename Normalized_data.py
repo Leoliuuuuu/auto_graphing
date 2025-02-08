@@ -72,7 +72,9 @@ for column in columns_to_plot:
     if normalize_row is not None:
         normalized_data[column] = data[column] / normalize_row[column]
     else:
-        normalized_data[column] = data[column] / data[column].max()
+        print(column)
+        factor = int(input("whats the factor you want?"))
+        normalized_data[column] = data[column] / data[column].max() * factor
 
 
 fig, ax1 = plt.subplots(figsize=(10, 6))
